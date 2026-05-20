@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>hyreops | Book a strategy call</title>
+  <meta name="description" content="Recruiting and funnel systems for D2D teams and life insurance agencies. Book a free strategy call." />
+  <meta name="theme-color" content="#F5F2EA" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="hyreops | Recruiting & funnels that scale" />
+  <meta property="og:description" content="We install proven funnels and recruiting machines for D2D and life insurance agencies." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.55;
+      color: #111111;
+      background: #F5F2EA;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -0.025em; line-height: 1.05; }
+
+    :root {
+      --cream: #F5F2EA;
+      --cream-soft: #EFEBE0;
+      --ink: #111111;
+      --ink-soft: #2A2A2A;
+      --muted: #6B655A;
+      --accent: #B8552C;
+      --max: 1180px;
+    }
+
+    .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(245, 242, 234, 0.9);
+      backdrop-filter: saturate(140%) blur(12px);
+      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      border-bottom: 1px solid rgba(17,17,17,0.08);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-size: 22px; letter-spacing: -0.02em;
+      font-weight: 400; color: var(--ink);
+    }
+    .logo b { font-weight: 800; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 18px;
+      background: var(--ink); color: var(--cream);
+      border-radius: 8px;
+      font-size: 14px; font-weight: 600;
+      transition: transform .15s ease;
+    }
+    .nav-cta:hover { transform: translateY(-1px); }
+    .nav-cta::after { content: "→"; transition: transform .2s ease; }
+    .nav-cta:hover::after { transform: translateX(2px); }
+
+    /* ---------- Hero with form ---------- */
+    .hero {
+      padding: 56px 0 80px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .hero-left { padding-top: 12px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      padding: 6px 12px;
+      background: rgba(184, 85, 44, 0.08);
+      border-radius: 999px;
+    }
+    .eyebrow::before {
+      content: ""; display: inline-block;
+      width: 6px; height: 6px; background: var(--accent);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 60px);
+      margin-bottom: 24px;
+      max-width: 16ch;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero .lede {
+      font-size: clamp(16px, 1.2vw, 19px);
+      max-width: 50ch;
+      color: var(--ink-soft);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    /* Hero proof row */
+    .hero-proof {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(17,17,17,0.12);
+      display: flex; gap: 40px; flex-wrap: wrap;
+    }
+    .hero-proof-item .num {
+      font-size: 28px; font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .hero-proof-item .num span { color: var(--accent); }
+    .hero-proof-item .lbl {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.4;
+      max-width: 18ch;
+    }
+
+    /* Form card */
+    .form-card {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 32px;
+      border-radius: 16px;
+      position: sticky;
+      top: 88px;
+    }
+    .form-card-head {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 8px;
+    }
+    .form-card-pulse {
+      width: 8px; height: 8px;
+      background: #4ade80; border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+    }
+    .form-card-label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(245,242,234,0.7);
+    }
+    .form-card h2 {
+      font-size: 24px;
+      color: var(--cream);
+      margin-bottom: 10px;
+    }
+    .form-card p {
+      font-size: 14px;
+      color: rgba(245,242,234,0.7);
+      margin: 0 0 24px;
+      line-height: 1.5;
+    }
+    .form-embed-wrap {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 8px;
+      min-height: 360px;
+    }
+    .form-embed-placeholder {
+      border: 2px dashed rgba(17,17,17,0.18);
+      border-radius: 8px;
+      padding: 48px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .form-embed-placeholder small { font-size: 12px; display: block; margin-top: 8px; }
+
+    /* ---------- Section base ---------- */
+    section { padding: 88px 0; }
+    .section-label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(30px, 3.8vw, 48px);
+      max-width: 20ch;
+      margin-bottom: 20px;
+    }
+    .section-sub {
+      font-size: clamp(15px, 1.1vw, 18px);
+      max-width: 56ch;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ---------- Problem ---------- */
+    .problem { background: var(--cream); }
+    .problem-grid {
+      margin-top: 48px;
+      display: grid; gap: 0;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(17,17,17,0.12);
+    }
+    .problem-card {
+      padding: 36px 28px 0 0;
+      border-right: 1px solid rgba(17,17,17,0.12);
+    }
+    .problem-card:last-child { border-right: 0; padding-right: 0; }
+    .problem-card:not(:first-child) { padding-left: 28px; }
+    .problem-num {
+      font-size: 13px; font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 14px;
+      letter-spacing: 0.08em;
+    }
+    .problem-card h3 { font-size: 20px; margin-bottom: 10px; line-height: 1.25; }
+    .problem-card p { color: var(--ink-soft); font-size: 15px; line-height: 1.6; margin: 0; }
+
+    /* ---------- Solution (combined with process steps) ---------- */
+    .solution { background: var(--ink); color: var(--cream); }
+    .solution .section-label { color: rgba(245,242,234,0.5); }
+    .solution .section-title { color: var(--cream); }
+    .solution .section-sub { color: rgba(245,242,234,0.75); }
+    .solution-grid {
+      margin-top: 56px;
+      display: grid; gap: 24px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .solution-card {
+      padding: 36px;
+      background: rgba(245,242,234,0.04);
+      border: 1px solid rgba(245,242,234,0.12);
+      border-radius: 14px;
+    }
+    .solution-card h3 {
+      font-size: 24px; color: var(--cream); margin-bottom: 12px;
+    }
+    .solution-card p { color: rgba(245,242,234,0.75); font-size: 15px; line-height: 1.6; margin: 0 0 20px; }
+    .solution-list { list-style: none; padding: 0; margin: 0; }
+    .solution-list li {
+      padding: 12px 0;
+      border-top: 1px solid rgba(245,242,234,0.1);
+      font-size: 14px; color: rgba(245,242,234,0.9);
+      display: flex; gap: 10px;
+    }
+    .solution-list li::before {
+      content: "+"; color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Process inline strip */
+    .process-strip {
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(245,242,234,0.12);
+    }
+    .process-strip-label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(245,242,234,0.55);
+      margin-bottom: 24px;
+    }
+    .process-steps-inline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+    .process-step-inline .num {
+      font-size: 13px; font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .process-step-inline h4 {
+      font-size: 16px; font-weight: 700;
+      color: var(--cream);
+      margin: 0 0 4px;
+    }
+    .process-step-inline p {
+      font-size: 13px;
+      color: rgba(245,242,234,0.65);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ---------- Proof / results ---------- */
+    .proof { background: var(--cream-soft); }
+    .proof-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .stats {
+      display: flex; flex-direction: column;
+      border-top: 1px solid rgba(17,17,17,0.15);
+      margin-top: 32px;
+    }
+    .stat {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(17,17,17,0.12);
+    }
+    .stat-num {
+      font-size: clamp(40px, 4vw, 56px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-label { font-size: 14px; color: var(--ink-soft); }
+
+    .testimonial {
+      padding: 40px;
+      background: var(--cream);
+      border-radius: 16px;
+      border: 1px solid rgba(17,17,17,0.08);
+    }
+    .testimonial-quote {
+      font-size: clamp(18px, 1.5vw, 22px);
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+    .testimonial-author {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .testimonial-avatar {
+      width: 42px; height: 42px;
+      background: var(--ink); color: var(--cream);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px;
+    }
+    .testimonial-author-name { font-weight: 700; font-size: 14px; }
+    .testimonial-author-role { font-size: 13px; color: var(--muted); }
+
+    /* ---------- FAQ ---------- */
+    .faq { background: var(--cream); }
+    .faq-list { margin-top: 40px; max-width: 800px; }
+    .faq-item { border-bottom: 1px solid rgba(17,17,17,0.12); }
+    .faq-item:first-child { border-top: 1px solid rgba(17,17,17,0.12); }
+    .faq-q {
+      width: 100%; background: transparent; border: 0;
+      padding: 22px 0;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; font-family: inherit;
+      font-size: 17px; font-weight: 600;
+      color: var(--ink); text-align: left;
+    }
+    .faq-q:hover { opacity: 0.7; }
+    .faq-q-icon {
+      width: 22px; height: 22px;
+      flex-shrink: 0; position: relative; margin-left: 16px;
+    }
+    .faq-q-icon::before, .faq-q-icon::after {
+      content: ""; position: absolute;
+      background: var(--ink);
+      transition: transform .25s ease;
+    }
+    .faq-q-icon::before { top: 50%; left: 0; right: 0; height: 2px; transform: translateY(-50%); }
+    .faq-q-icon::after  { left: 50%; top: 0; bottom: 0; width: 2px; transform: translateX(-50%); }
+    .faq-item.open .faq-q-icon::after { transform: translateX(-50%) rotate(90deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-a-inner { padding: 0 0 22px; max-width: 68ch; color: var(--ink-soft); font-size: 15px; line-height: 1.65; }
+
+    /* ---------- Final CTA ---------- */
+    .final-cta {
+      background: var(--ink); color: var(--cream);
+      padding: 96px 0;
+      text-align: center;
+    }
+    .final-cta .section-title {
+      color: var(--cream);
+      max-width: 22ch;
+      margin: 0 auto 20px;
+    }
+    .final-cta .section-sub {
+      color: rgba(245,242,234,0.75);
+      max-width: 50ch; margin: 0 auto 32px;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 32px;
+      background: var(--cream); color: var(--ink);
+      border-radius: 10px;
+      font-size: 16px; font-weight: 700;
+      transition: transform .15s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-primary::after { content: "→"; transition: transform .2s ease; }
+    .btn-primary:hover::after { transform: translateX(4px); }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background: #0a0a0a; color: rgba(245,242,234,0.7);
+      padding: 32px 0;
+      font-size: 13px;
+    }
+    .footer-inner {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .footer-inner .logo { color: var(--cream); font-size: 18px; }
+    .footer-links a { margin-left: 20px; color: rgba(245,242,234,0.6); }
+    .footer-links a:hover { color: var(--cream); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .hero { padding: 40px 0 56px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-card { position: static; }
+      .form-card { padding: 24px; }
+      section { padding: 64px 0; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .problem-card { border-right: 0; border-bottom: 1px solid rgba(17,17,17,0.12); padding: 28px 0 !important; }
+      .problem-card:last-child { border-bottom: 0; }
+      .solution-grid { grid-template-columns: 1fr; }
+      .process-steps-inline { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .proof-wrap { grid-template-columns: 1fr; gap: 40px; }
+      .final-cta { padding: 72px 0; }
+      .footer-links a { margin-left: 14px; }
+    }
+    @media (max-width: 560px) {
+      .container { padding: 0 18px; }
+      .hero h1 { font-size: 36px; }
+      .hero-proof { gap: 28px; }
+      .process-steps-inline { grid-template-columns: 1fr; }
+      .testimonial { padding: 28px; }
+    }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">hyre<b>ops</b></a>
+      <a href="#book" class="nav-cta">Book a call</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO + FORM (above the fold) ============ -->
+  <section class="hero" id="book">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <span class="eyebrow">For D2D + life insurance teams</span>
+          <h1>Stop chasing recruits. <span>Start choosing them.</span></h1>
+          <p class="lede">
+            hyreops installs the recruiting and funnel systems top agencies use to scale past 7 figures. Done for you, in 30 days.
+          </p>
+
+          <div class="hero-proof">
+            <div class="hero-proof-item">
+              <div class="num">300<span>+</span></div>
+              <div class="lbl">Recruits brought in through systems we've built</div>
+            </div>
+            <div class="hero-proof-item">
+              <div class="num">D2D<span> + LI</span></div>
+              <div class="lbl">Built exclusively for D2D and life insurance teams</div>
+            </div>
+            <div class="hero-proof-item">
+              <div class="num">1<span>:1</span></div>
+              <div class="lbl">Founder-led builds. You work directly with me</div>
+            </div>
+          </div>
+        </div>
+
+        <!--
+          ============================================================
+          GHL FORM EMBED SLOT
+          ============================================================
+          Paste your GoHighLevel form/calendar embed code inside the
+          <div id="ghl-form-embed">…</div> block below.
+
+          In GHL: Sites > Forms (or Calendars) > Integration > Embed
+          Copy the <iframe> or <script> snippet.
+          ============================================================
+        -->
+        <aside class="form-card">
+          <div class="form-card-head">
+            <div class="form-card-pulse"></div>
+            <span class="form-card-label">Booking now</span>
+          </div>
+          <h2>Book your strategy call</h2>
+          <p>30-minute strategy call. We'll audit your setup and show you exactly how our system would work for your team. If we're not a fit, we'll tell you.</p>
+
+          <div class="form-embed-wrap">
+            <div id="ghl-form-embed">
+              <!-- PASTE GHL EMBED CODE HERE -->
+              <div class="form-embed-placeholder">
+                GHL form embed slot
+                <small>Paste your iframe / script inside the div with id="ghl-form-embed".</small>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM ============ -->
+  <section class="problem">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">The trap</div>
+        <h2 class="section-title">Recruiting like it's 2015 doesn't scale.</h2>
+        <p class="section-sub">
+          Cold calls, manual sourcing, ad spend that disappears. The pipeline depends entirely on you, and that ceiling shows up fast.
+        </p>
+      </div>
+
+      <div class="problem-grid reveal">
+        <div class="problem-card">
+          <div class="problem-num">01</div>
+          <h3>Unpredictable lead flow</h3>
+          <p>Some weeks you're flooded. Most weeks you're chasing. No system producing consistent recruits.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-num">02</div>
+          <h3>Ad spend that evaporates</h3>
+          <p>You've tried Meta, Google, TikTok. The funnel underneath wasn't built to convert, so the numbers never worked.</p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-num">03</div>
+          <h3>Pipeline leaks everywhere</h3>
+          <p>Leads ghost, recruits no-show, follow-up gets dropped. Half your pipeline disappears on the floor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOLUTION + PROCESS ============ -->
+  <section class="solution">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">What we install</div>
+        <h2 class="section-title">Two machines. Built for the way your team actually grows.</h2>
+        <p class="section-sub">
+          Recruiting and funnels, done better than anyone else for your specific industry.
+        </p>
+      </div>
+
+      <div class="solution-grid reveal">
+        <div class="solution-card">
+          <h3>Recruiting Systems</h3>
+          <p>Automated sourcing, qualification, and onboarding that fills your team without you working the phone.</p>
+          <ul class="solution-list">
+            <li>Recruiting-specific ad campaigns</li>
+            <li>Qualification flows that filter time-wasters</li>
+            <li>Interview booking + no-show recovery</li>
+            <li>Onboarding sequences that ramp agents 2x faster</li>
+          </ul>
+        </div>
+        <div class="solution-card">
+          <h3>Sales Funnels</h3>
+          <p>Landing pages, ad creative, and follow-up sequences that turn cold traffic into booked calls.</p>
+          <ul class="solution-list">
+            <li>Pages engineered for D2D and insurance traffic</li>
+            <li>Ad creative + copy built around your offer</li>
+            <li>SMS and email follow-up sequences</li>
+            <li>Tracking and attribution that actually means something</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="process-strip reveal">
+        <div class="process-strip-label">From kickoff to live in 30 days</div>
+        <div class="process-steps-inline">
+          <div class="process-step-inline">
+            <div class="num">01 / AUDIT</div>
+            <h4>Map the gaps</h4>
+            <p>30-min deep dive into your pipeline, offer, and market.</p>
+          </div>
+          <div class="process-step-inline">
+            <div class="num">02 / BUILD</div>
+            <h4>Install the machine</h4>
+            <p>Pages, automations, ads. All built and tested by us.</p>
+          </div>
+          <div class="process-step-inline">
+            <div class="num">03 / LAUNCH</div>
+            <h4>Go live</h4>
+            <p>First qualified recruits and calls hit the calendar.</p>
+          </div>
+          <div class="process-step-inline">
+            <div class="num">04 / SCALE</div>
+            <h4>Optimize weekly</h4>
+            <p>Drive cost per lead down. Drive volume up.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT'S IN THE INSTALL + FOUNDER NOTE ============ -->
+  <section class="proof">
+    <div class="container">
+      <div class="proof-wrap">
+        <div class="reveal">
+          <div class="section-label">What's in the install</div>
+          <h2 class="section-title">Everything you need, nothing you don't.</h2>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-num"><span>+</span> Ads</div>
+              <div class="stat-label">Recruiting and lead-gen ad campaigns built and managed on Meta, Google, and TikTok.</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num"><span>+</span> Pages</div>
+              <div class="stat-label">High-converting landing pages, opt-ins, and recruiting funnels. Copy and design done for you.</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num"><span>+</span> Automation</div>
+              <div class="stat-label">SMS, email, and call follow-up sequences that move leads from opt-in to booked call to onboarded.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial reveal">
+          <div class="form-card-label" style="color: var(--accent); margin-bottom: 12px;">From the founder</div>
+          <div class="testimonial-quote">
+            "I've watched too many agencies run half a system. Recruits come in, but there's no follow-up, no sales sequence, no real way to convert them. That's why most never produce. hyreops installs the full machine: recruiting on the front end, and the follow-up and conversion sequences on the back end. Same approach I've used to bring in 300+ recruits."
+          </div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">D</div>
+            <div>
+              <div class="testimonial-author-name">Dylan</div>
+              <div class="testimonial-author-role">Founder, hyreops</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Common questions</div>
+        <h2 class="section-title">Quick answers.</h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            How fast will I see results?
+            <span class="faq-q-icon"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Most clients see qualified leads inside the first 14 days post-launch. Day 30 the system is running consistently. Full scale typically lands in the 60-90 day window.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            What does it cost?
+            <span class="faq-q-icon"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Depends on team size, market, and scope. We'll scope it together on the call. If the math doesn't work for your business, we'll tell you straight.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Will this work in my market?
+            <span class="faq-q-icon"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            If you're running a D2D team or a life insurance agency anywhere in the U.S., yes. We customize the build around your geography, offer, and team during install.
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="container">
+      <h2 class="section-title">Ready to build your machine?</h2>
+      <p class="section-sub">
+        Book a free 30-minute strategy call. We'll audit your pipeline and show you exactly what hyreops would install for your team.
+      </p>
+      <a href="#book" class="btn-primary">Book a strategy call</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container footer-inner">
+      <a href="#" class="logo">hyre<b>ops</b></a>
+      <div class="footer-links">
+        <a href="mailto:hyreops@gmail.com">hyreops@gmail.com</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      q.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach((i) => {
+          i.classList.remove('open');
+          i.querySelector('.faq-a').style.maxHeight = null;
+          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          a.style.maxHeight = a.scrollHeight + 'px';
+          q.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+
+</body>
+</html>
